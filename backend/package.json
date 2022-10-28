@@ -1,0 +1,26 @@
+{
+  "name": "web-app-otot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mradhyaf/web-app-otot.git"
+  },
+  "author": "Radhya Fawza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mradhyaf/web-app-otot/issues"
+  },
+  "homepage": "https://github.com/mradhyaf/web-app-otot#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.0"
+  }
+}
