@@ -38,7 +38,12 @@ const removeAll = async (req, res) => {
 const getByName = async (req, res) => {
   try {
     const user = await User.find({ name: req.params.name }).exec()
-    res.json(user)
+
+    if (user.length == 0) {
+      res.status(404).json({ message: "User not found" })
+    }
+
+    res.json(user[0])
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
@@ -47,7 +52,7 @@ const getByName = async (req, res) => {
 const updateByName = async (req, res) => {
   try {
     const user = await User.find({ name: req.params.name })
-    const id = user.id
+    const id = user[0].id
     const newData = req.body
     const options = { new: true }
 
@@ -64,7 +69,7 @@ const updateByName = async (req, res) => {
 const removeByName = async (req, res) => {
   try {
     const user = await User.find({ name: req.params.name })
-    const id = user.id
+    const id = user[0].id
     const deletedUser = await User.findByIdAndDelete(id)
     res.send(`User ${deletedUser.name} has been deleted`)
   } catch (error) {
